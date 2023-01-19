@@ -1,6 +1,6 @@
 import type {NextPage} from 'next'
 import {getFeaturedEvents} from "../dummy-data";
-import EventList, {EventListParams} from "../components/events/event-list";
+import EventList from "../components/events/event-list";
 import {EventItemType} from "../components/events/event-item";
 
 const Home: NextPage = () => {
