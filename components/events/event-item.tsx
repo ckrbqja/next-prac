@@ -18,7 +18,7 @@ export default function EventItem(props: { itemType:EventItemType }) {
     const { title, image, date, location, id } = props.itemType;
 
     const formattedAddress = location.replace(', ', '\n');
-    const explorerLink = `events/${id}`
+    const explorerLink = `/events/${id}`
 
     return <li className={classes.item}>
         <img src={`/${image}`} alt=""/>

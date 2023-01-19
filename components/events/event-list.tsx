@@ -1,6 +1,6 @@
 import EventItem, {EventItemType} from "./event-item";
 import classes from "./event-list.module.css";
-export type EventListParams = { items: [EventItemType]; };
+export type EventListParams = { items: EventItemType[]; };
 export default function EventList(props: EventListParams) {
     const {items} = props;
 
