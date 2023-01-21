@@ -4,6 +4,7 @@ import DateIcon from "../icons/date-icon"
 import AddressIcon from "../icons/address-icon"
 import ArrowRightIcon from "../icons/arrow-right-icon"
 import {Address} from "cluster";
+import Image from "next/image";
 export type EventItemType = {
     title: string;
     image: string;
@@ -21,7 +22,7 @@ export default function EventItem(props: { itemType:EventItemType }) {
     const explorerLink = `/events/${id}`
 
     return <li className={classes.item}>
-        <img src={`/${image}`} alt=""/>
+        <Image src={`/${image}`} alt={title} width={250} height={160}/>
         <div className={classes.content}>
             <div>
                 <h2 className={classes.icon}>{title}</h2>
