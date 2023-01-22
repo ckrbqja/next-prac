@@ -1,5 +1,5 @@
 import classes from "./contact-form.module.css";
-import {ChangeEventHandler, EventHandler, FormEvent, FormEventHandler, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Notification from '../ui/notification'
 
 type notificationType = {
@@ -26,13 +26,13 @@ export default function ContactForm() {
 
     useEffect(() => {
         if (notification?.status !== 'pending') {
-            const timeout = setTimeout(()=>{
+            const timeout = setTimeout(() => {
                 setNotification(null)
-            },3000);
+            }, 3000);
 
             return () => clearTimeout(timeout);
         }
-    },[notification])
+    }, [notification])
 
     const NOTIFICATION_MANUAL: any = {
         error: {
