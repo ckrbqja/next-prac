@@ -1,7 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {MongoClient} from "mongodb";
-import {aws} from "@aws-sdk/util-endpoints/dist-types/lib";
 
 type Data = {
     message: string
@@ -15,18 +14,14 @@ export default async function handler(
     if (req.method === 'POST') {
 
         try {
-            const DB_NAME = 'contact';
-<<<<<<< HEAD
-            const client = await MongoClient.connect(`mongodb+srv://ckrbqja:${process.env.MONGODBPWD}@cluster0.owpyhzx.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`);
-=======
-            const client = await MongoClient.connect(`mongodb+srv://ckrbqja:ckrbqja@cluster0.owpyhzx.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`);
->>>>>>> parent of 22c3640 (블로그 end)
+            const DB_NAME = process.env.mongodb_database;
+            const client = await MongoClient.connect(process.env.mongodb_connect_url + '');
 
             const db = client.db();
             await db.collection('messages').insertOne(req.body);
         } catch (e) {
-            console.log(e)
             res.status(500).json({message: '오류'})
+            return;
         }
 
 

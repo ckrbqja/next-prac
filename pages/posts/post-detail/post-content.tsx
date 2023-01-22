@@ -7,9 +7,13 @@ import Image from "next/image";
 import rangeParser from 'parse-numeric-range';
 
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import children = ReactMarkdown.propTypes.children;
+import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark'
+import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript'
+import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css'
 
+//용량줄이기
+SyntaxHighlighter.registerLanguage('js', js);
+SyntaxHighlighter.registerLanguage('css', css);
 
 export default function PostContent({post}: { post: postType }) {
 
@@ -28,7 +32,6 @@ export default function PostContent({post}: { post: postType }) {
 
             if (node.children[0].tagName === 'img') {
                 const image = node.children[0];
-                console.log(`/images/posts/${post.slug}/${image.properties.src}`);
 
                 return <div className={classes.image}>
                     <Image src={image.properties.src} alt={image.alt} width={600} height={300}/>
