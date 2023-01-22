@@ -1,6 +1,6 @@
 import classes from "./contact-form.module.css";
 import {useEffect, useState} from "react";
-import Notification from '../ui/notification'
+import Notification from '../ui/Notification'
 
 type notificationType = {
     status: string,
