@@ -28,9 +28,10 @@ export default function PostContent({post}: { post: postType }) {
 
             if (node.children[0].tagName === 'img') {
                 const image = node.children[0];
+                console.log(`/images/posts/${post.slug}/${image.properties.src}`);
 
                 return <div className={classes.image}>
-                    <Image src={image.properties.src} alt={image.properties.alt} width={600} height={300}/>
+                    <Image src={image.properties.src} alt={image.alt} width={600} height={300}/>
                 </div>
             }
 

@@ -2,17 +2,9 @@ import PostContent from "./post-detail/post-content";
 import {InferGetStaticPropsType} from "next";
 import {getAllPosts, getPostData} from "../../lib/posts-util";
 import {postType} from "../../components/posts/posts-grid";
-import {Fragment} from "react";
-import Head from "next/head";
 
 export default function PostDetailPage(props: { posts: postType }) {
-    return <Fragment>
-        <Head>
-            <title>{props.posts.title}</title>
-            <meta name="description" content={props.posts.excerpt}/>
-        </Head>
-        <PostContent post={props.posts}/>
-    </Fragment>
+    return <PostContent post={props.posts}/>
 }
 
 export async function getStaticProps({params}: InferGetStaticPropsType<any>) {
@@ -25,6 +17,6 @@ export async function getStaticProps({params}: InferGetStaticPropsType<any>) {
 export async function getStaticPaths() {
     return {
         paths: getAllPosts().map(({slug}) => ({params: {slug}})),
-        fallback: true,
+        fallback: false,
     }
 }
