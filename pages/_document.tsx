@@ -1,0 +1,17 @@
+import Document, {Head, Html, Main, NextScript} from "next/document";
+
+
+export default class MyDocument extends Document {
+    render() {
+        return (
+            <Html lang="kr">
+                <Head/>
+                <body>
+                    <Main/>
+                    <NextScript/>
+                    <div id={'notification'}></div>
+                </body>
+            </Html>
+        )
+    }
+}

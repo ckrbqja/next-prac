@@ -16,12 +16,13 @@ export default async function handler(
 
         try {
             const DB_NAME = 'contact';
-            const client = await MongoClient.connect(`mongodb+srv://ckrbqja:ckrbqja@cluster0.owpyhzx.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`);
+            const client = await MongoClient.connect(`mongodb+srv://ckrbqja:ckrbqja@cluster0.owpyhzxconte.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`);
 
             const db = client.db();
             await db.collection('messages').insertOne(req.body);
         } catch (e) {
             res.status(500).json({message: '오류'})
+            return;
         }
 
 
